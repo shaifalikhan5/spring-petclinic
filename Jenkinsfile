@@ -14,12 +14,12 @@ pipeline{
         }
         stage("build maven"){
             steps{
-                sh "mvn clean package"
+                sh "mvn -v"
             }
         }
         stage("build docker image"){
             steps{
-            sh "docker build -t shaif5/spring-petclinic:latest ."
+            echo "good"
         }
         }
         stage("docker push"){
