@@ -14,21 +14,30 @@ pipeline{
         }
         stage("build maven"){
             steps{
-                sh "mvn clean package"
+                sh "mvn -v"
             }
         }
         stage("build docker image"){
             steps{
-            sh "docker build -t shaif5/spc:1 ."
+            echo "loginimage"
         }
         }
         stage("docker push"){
             steps{
             withCredentials([string(credentialsId: 'dockerhub1', variable: 'dockerhub')]) {
-             sh "docker login -u shaif5 -p ${dockerhub}"
-             sh "docker push shaif5/spc:1"
+            echo "loginpush"
             }
         }
         } 
-    }
+        stage("ansible playbook"){
+            steps{
+            sshagent(['login']) {
+              sshagent (credentials: ['deploy-dev']) {
+              sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.20.63'
+              echo "login done ansible"
+  }
+}
+        }
+        }
+}
 }
