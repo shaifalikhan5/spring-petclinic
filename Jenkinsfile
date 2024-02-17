@@ -24,7 +24,7 @@ pipeline{
         }
         stage("docker push"){
             steps{
-            withCredentials([string(credentialsId: 'dockerhub1', variable: 'dockerhub')]) {
+            withCredentials([string(credentialsId: 'dk', variable: 'dockerhub1')]) {
             sh "docker login -u shaif5 -p ${dockerhub1}"
             }
         }
