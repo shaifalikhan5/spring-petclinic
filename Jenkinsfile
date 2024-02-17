@@ -12,11 +12,6 @@ pipeline{
                 git branch: 'main', credentialsId: 'githubtoken', url: 'https://github.com/shaifalikhan5/spring-petclinic.git'
             }
         }
-        stage("build stage"){
-            steps{
-            sh "mvn package"
-        }
-        }
         stage("build docker image"){
             steps{
             sh "docker build -t shaif5/spc:1 ."
