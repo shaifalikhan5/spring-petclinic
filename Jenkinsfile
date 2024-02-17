@@ -14,18 +14,18 @@ pipeline{
         }
         stage("build maven"){
             steps{
-                sh "mvn -v"
+                sh "mvn clean package"
             }
         }
         stage("build docker image"){
             steps{
-            echo "loginimage"
+            sh "docker build -t shaif5/spring-petclinic:latest ."
         }
         }
         stage("docker push"){
             steps{
             withCredentials([string(credentialsId: 'dockerhub1', variable: 'dockerhub')]) {
-            echo "loginpush"
+            sh "docker login -u shaif5 -p ${dockerhub1}"
             }
         }
         } 
@@ -36,7 +36,7 @@ pipeline{
             steps{
             sshagent(['login']) {
               sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.20.63'
-              sh "ansible-playbook /home/ubuntu/test.yaml --check"
+              sh "ansible-playbook /home/ubuntu/test.yaml"
   }
 }
         }
