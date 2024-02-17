@@ -30,10 +30,13 @@ pipeline{
         }
         } 
         stage("ansible playbook"){
+            agent {
+                label "ansible"
+            }
             steps{
             sshagent(['login']) {
               sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.20.63'
-              echo "login done ansible"
+              sh "ansible-playbook /home/ubuntu/test.yaml --check"
   }
 }
         }
