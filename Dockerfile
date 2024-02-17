@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM maven:3.9.6-eclipse-temurin-17-alpine as build
 COPY . /app
 RUN mvn clean package
 EXPOSE 8080

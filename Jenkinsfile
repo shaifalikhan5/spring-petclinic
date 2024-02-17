@@ -22,5 +22,12 @@ pipeline{
             sh "docker build -t shaif5/spc:1 ."
         }
         }
+        stage("docker push"){
+            withCredentials([gitUsernamePassword(credentialsId: 'dockerhub', gitToolName: 'Default')]) {
+             sh "docker login -u shaif5 -p ${dockerhub}"
+             sh "docker push "
+
+        }
+        } 
     }
 }
