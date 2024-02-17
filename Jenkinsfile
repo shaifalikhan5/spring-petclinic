@@ -36,7 +36,7 @@ pipeline{
             steps{
             sshagent(['login']) {
               sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.20.63'
-              sh "ansible-playbook /home/ubuntu/test.yaml"
+              sh "ansible-playbook /opt/test.yaml"
   }
 }
         }
