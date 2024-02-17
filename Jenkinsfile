@@ -26,6 +26,7 @@ pipeline{
             steps{
             withCredentials([string(credentialsId: 'dk', variable: 'dockerhub1')]) {
             sh "docker login -u shaif5 -p ${dockerhub1}"
+            sh "docker push shaif5/spring-petclinic:latest"
             }
         }
         } 
