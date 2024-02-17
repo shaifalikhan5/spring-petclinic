@@ -32,12 +32,10 @@ pipeline{
         stage("ansible playbook"){
             steps{
             sshagent(['login']) {
-              sshagent (credentials: ['deploy-dev']) {
               sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.20.63'
               echo "login done ansible"
   }
 }
         }
         }
-}
 }
