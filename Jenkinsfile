@@ -7,18 +7,7 @@ pipeline {
         stage("first stage"){
             steps{
                 sh "mvn -v"
-            }
+               } 
         }
-        stage("second stage"){
-            steps{
-                sh "mvn -v"
-            }
-        }
-        // stage("build artifact"){
-        //     steps{
-                
-        //     }
-        // }
-
     }
-}
+}   
