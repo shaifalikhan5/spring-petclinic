@@ -8,8 +8,14 @@ pipeline {
         }
         stage("second stage"){
             steps{
-                sh "mvn clean package"
+                sh "mvn -v"
             }
         }
+        // stage("build artifact"){
+        //     steps{
+                
+        //     }
+        // }
+
     }
 }
