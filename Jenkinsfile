@@ -1,18 +1,22 @@
 pipeline {
     agent any
-    environment {
-        PATH="$PATH:/home/ubuntu/maven3.9/bin"
+    tools {
+        // Define Maven and Java tools
+        maven "maven3.9"
+        jdk "java17"
     }
-    stages{
-        stage("first stage"){
-            steps{
+    stages {
+        stage("Checkout") {
+            steps {
+                // Checkout the code from the GitHub repository
                 git branch: 'main', url: 'https://github.com/shaifalikhan5/spring-petclinic.git'
-               } 
+            }
         }
-        stage("build stage"){
-            steps{
-                sh "sudo mvn clean package"
+        stage("Build") {
+            steps {
+                // Execute Maven command to clean and package the project
+                sh "mvn clean package"
             }
         }
     }
-}   
+}
