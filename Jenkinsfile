@@ -6,8 +6,13 @@ pipeline {
     stages{
         stage("first stage"){
             steps{
-                sh "mvn -v"
+                git branch: 'main', url: 'https://github.com/shaifalikhan5/spring-petclinic.git'
                } 
+        }
+        stage("build stage"){
+            steps{
+                sh "mvn clean package"
+            }
         }
     }
 }   
