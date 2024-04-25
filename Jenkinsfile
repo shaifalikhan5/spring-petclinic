@@ -44,7 +44,7 @@ pipeline {
         //    sh 'docker build -t shaif5/springpetclinic:1.0 .'
         //     }
         //     }
-        stage("push") {
+        stage('push') {
           steps {
            sh '''docker build -t shaif5/springpetclinic:1.0 .
                  docker run -d --name shaif -p 8080:8080 shaif5/springpetclinic:1.0
