@@ -23,7 +23,7 @@ pipeline {
         }
         stage("sonarqube scanner"){
            steps {
-              withSonarQubeEnv('sonarn') {
+              withSonarQubeEnv(installationName:'sonarn',credentialsId: 'sonarqqqq') {  // sonarn means write the name of sonarserver when you add <sonarserverip>:9000
                 sh 'mvn sonar:sonar'
               }
             }
