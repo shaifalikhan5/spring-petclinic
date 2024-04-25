@@ -18,6 +18,7 @@ pipeline {
         stage("archieve artifacts"){
             steps{
                 archiveArtifacts artifacts: 'target/*.jar'
+                junit 'build/reports/**/*.xml'
            }
         }
     }
