@@ -21,5 +21,11 @@ pipeline {
                 junit 'build/reports/**/*.xml'
            }
         }
+        stage("sonarqube scanner"){
+            steps{
+                sh 'mvn sonar:sonar -Dsonar.token='438eefd2fc16d4afbf9dea83e71e708dc1bf2ee6'
+           }
+        }
+
     }
 }
