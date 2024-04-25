@@ -18,7 +18,7 @@ pipeline {
         stage("archieve artifacts"){
             steps{
                 archiveArtifacts artifacts: 'target/*.jar'
-                junit 'build/reports/**/*.xml'
+                junit '**/target/surefire-reports/*.xml'
            }
         }
         stage("sonarqube scanner"){
