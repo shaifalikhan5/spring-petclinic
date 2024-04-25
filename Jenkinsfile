@@ -15,5 +15,10 @@ pipeline {
                 sh 'mvn clean package'
            }
         }
+        stage("archieve artifacts"){
+            steps{
+                archiveArtifacts artifacts: 'target/*.jar'
+           }
+        }
     }
 }
