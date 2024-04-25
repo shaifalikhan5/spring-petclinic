@@ -26,15 +26,14 @@ pipeline {
               withSonarQubeEnv(installationName:'sonarn',credentialsId: 'sonarqqqq') {  // sonarn means write the name of sonarserver when you add <sonarserverip>:9000
                 sh 'mvn sonar:sona'
               }
-            }
+            }    
         }
-         stage("Quality Gate") {
+        stage("Quality Gate") {
           steps {
            timeout(time: 1, unit: 'HOURS') {
            waitForQualityGate abortPipeline: true , credentialsId: "sonarqqqq", webhookSecretId: "sonarqube-webhook"
               }
             }
-
-
     }
+}
 }
