@@ -35,5 +35,10 @@ pipeline {
             }
             }
         }
+        stage("dockerbuid") {
+          steps {
+           sh 'docker build -t shaif5/springpetclinic:1.0 .'
+            }
+            }
     }
 }
