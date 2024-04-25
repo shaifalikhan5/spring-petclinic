@@ -48,7 +48,7 @@ pipeline {
           steps {
            sh '''
                  docker run -d --name shaif -p 8080:8080 shaif5/springpetclinic:1.0
-                 docker login -u shaif5 -p "dckr_pat_CMsCtAp_U3btiNaTPK2BA6sECPI"
+                 docker login -u shaif5 -p Docker@2024
                  docker push shaif5/springpetclinic:1.0
               '''
             }
