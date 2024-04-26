@@ -16,7 +16,7 @@ pipeline {
         }
         stage("build stage"){
             steps{
-                sh 'mvn clean package'
+                sh 'mvclean package'
            }
         }
         stage("archieve artifacts"){
