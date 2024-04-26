@@ -4,10 +4,6 @@ pipeline {
         maven 'maven3.9'
         jdk   'java17' 
     }
-    environment {
-    registry = "shaif5/springpetclinc:1.0"
-    registryCredential = ''
-}
     stages{
         stage("git checkout"){
             steps{
