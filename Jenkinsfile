@@ -16,7 +16,7 @@ pipeline {
         }
         stage("build stage"){
             steps{
-                sh 'mvn clean package'
+                sh 'whoami'
            }
         }
         stage("archieve artifacts"){
