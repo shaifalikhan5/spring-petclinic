@@ -10,8 +10,10 @@ pipeline {
             git branch: 'main', credentialsId: 'github', url: 'https://github.com/shaifalikhan5/spring-petclinic.git'
            }
         stage("build stage"){
+          steps{
           sh "mvn clean package"
         }  
+        }
         }
     }
 }
