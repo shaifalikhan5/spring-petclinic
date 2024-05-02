@@ -7,7 +7,7 @@ pipeline {
     stages{
         stage("git checkout"){
             steps{
-            sh "mvn -v"
+            git branch: 'main', credentialsId: 'github', url: 'https://github.com/shaifalikhan5/spring-petclinic.git'
            }
         }
     }
